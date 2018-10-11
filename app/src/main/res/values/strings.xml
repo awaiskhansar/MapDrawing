@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MapDrawing</string>
+    <string name="selectmap">Get Location</string>
+
+</resources>

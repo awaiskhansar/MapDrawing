@@ -1,0 +1,33 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.example.awaisriffat.mapdrawing"
+        minSdkVersion 17
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+
+    implementation "com.android.support:appcompat-v7:$rootProject.ext.SupportLibVersion",
+            "com.android.support:design:$rootProject.ext.SupportLibVersion"
+    implementation "com.google.android.gms:play-services-maps:$rootProject.ext.playServicesVersion",
+            "com.google.android.gms:play-services-location:$rootProject.ext.playServicesVersion"
+
+    implementation project(':maplibrary')
+    implementation project(':maplibraryUtil')
+    testImplementation 'junit:junit:4.12'
+}

@@ -1,0 +1,45 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 27
+    buildToolsVersion '28.0.2'
+
+    defaultConfig {
+        minSdkVersion 17
+        targetSdkVersion 27
+        versionCode 110
+        versionName "1.1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+
+    def SupportLibVersion = '27.1.1'
+     implementation "com.android.support:appcompat-v7:$rootProject.ext.SupportLibVersion",
+            "com.android.support:design:$rootProject.ext.SupportLibVersion"
+
+    def playServicesVersion = '16.0.0'
+    implementation "com.google.android.gms:play-services-maps:$rootProject.ext.playServicesVersion",
+            "com.google.android.gms:play-services-location:$rootProject.ext.playServicesVersion"
+
+    implementation('com.schibstedspain.android:android-reactive-location:0.10.1') {
+        exclude group: 'com.google.android.gms'
+    }
+    implementation 'com.tbruyelle.rxpermissions:rxpermissions:0.9.4@aar'
+    implementation 'com.google.maps.android:android-maps-utils:0.5+'
+    testImplementation 'junit:junit:4.12'
+}
