@@ -1,9 +1,9 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.example.awaisriffat.mapdrawing"
+//        applicationId "com.example.awaisriffat.mapdrawing"
         minSdkVersion 17
         targetSdkVersion 28
         versionCode 1
